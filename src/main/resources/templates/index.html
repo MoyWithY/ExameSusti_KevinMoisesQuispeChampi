@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+
+ <a th:href="@{/nuevo}" class="btn btn-primary">Nu evo</a>
+
+	<div class="container mt-">
+		<table class="table">
+			<thead>
+
+				<tr>
+					<td>Id</td>
+					<td>Nombres</td>
+					<td>apellido</td>
+					<td>fecha de Nacimiento</td>
+					<td>Acciones</td>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr th:each="person:${persona}">
+					<td th:text="${persona.id}"></td>
+					<td th:text="${persona.fistname}"> </td>
+					<td th:text="${persona.lastname}"></td>
+						<td th:text="${persona.DateBirth}"></td>
+					<td>
+					<a th:href="@{/editar/}+${persona.id}" class="btn btn-warning">Editar</a>
+					<a th:href="@{/eliminar/}+${persona.id}" class="btn btn-danger">Eliminar </a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>
